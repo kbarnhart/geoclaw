@@ -34,7 +34,8 @@ c :::::::::::::::::::::::::::::::::::::::;::::::::::::::::::::
               node(store1,mptr)   = loc
               if (naux .gt. 0) then
                 locaux              = igetsp(mitot*mjtot*naux)
-                do k = 1, mitot*mjtot*naux, naux  ! only set first component of aux to signal
+                ! do k = 1, mitot*mjtot*naux, naux  ! only set first component of aux to signal
+                do k = 1, mitot*mjtot*naux  ! KRB 2026/08/26 - set all components to NEEDS_TO_BE_SET rather than just aux(1)
                    alloc(locaux+k-1) = NEEDS_TO_BE_SET ! new system checks this val before setting
                 end do
                 
