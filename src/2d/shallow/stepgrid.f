@@ -232,7 +232,7 @@ c
 c     # Copied here from b4step2 since need to do before saving to qc1d:
       forall(i=1:mitot, j=1:mjtot, q(1,i,j) < dry_tolerance)
         q(1,i,j) = max(q(1,i,j),0.d0)
-        q(2:meqn,i,j) = 0.d0
+        q(2:3,i,j) = 0.d0
       end forall
 c
       if (method(5).eq.1) then
